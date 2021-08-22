@@ -24,10 +24,5 @@ public class IndexController {
         return "install";
     }
 
-    @GetMapping("/")
-    public String index(Model model) {
-        List<User> users=userService.list();
-        model.addAttribute("users", users);
-        return "index";
-    }
+
 }

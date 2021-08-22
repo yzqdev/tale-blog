@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "tale.allow-install",
+      "type": "java.lang.Boolean",
+      "description": "Description for tale.allow-install."
+    }
+  ] }
