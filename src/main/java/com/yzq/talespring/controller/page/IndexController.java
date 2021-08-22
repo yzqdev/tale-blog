@@ -1,7 +1,13 @@
 package com.yzq.talespring.controller.page;
 
+import com.yzq.talespring.model.entity.User;
+import com.yzq.talespring.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author yzq
@@ -11,9 +17,17 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class IndexController {
+    @Resource
+    UserService userService;
     @GetMapping("/install")
-    public String install(){
+    public String install() {
         return "install";
     }
 
+    @GetMapping("/")
+    public String index(Model model) {
+        List<User> users=userService.list();
+        model.addAttribute("users", users);
+        return "index";
+    }
 }
