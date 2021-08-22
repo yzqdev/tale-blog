@@ -1,5 +1,8 @@
 package com.yzq.talespring.model.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
@@ -8,12 +11,13 @@ import lombok.Data;
  * @author biezhi
  */
 @Data
-//@Table(name = "t_users", pk = "uid")
-public class Users  {
+@TableName( "t_users" )
+public class User {
 
     /**
      * user表主键
      */
+    @TableId(type = IdType.AUTO)
     private Integer uid;
 
     /**
