@@ -41,7 +41,7 @@
                     var params = $form_container.serialize();
                     tale.showLoading();
                     $.ajax({
-                        url: '/install',
+                        url: '/home/install',
                         type: 'POST',
                         async: false,
                         data: params,

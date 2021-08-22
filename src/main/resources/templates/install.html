@@ -62,7 +62,7 @@
     </section>
 
 
-    <div class="row" th:if="${!is_install}">
+    <div class="row" th:if="${true}">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -137,7 +137,7 @@
             </div> <!-- End panel -->
         </div> <!-- end col -->
     </div> <!-- End row -->
-     <div th:if="${is_install}">
+     <div th:if="${false}">
          你已经安装过Tale了，如需重新安装请提前做好备份，并删除根目录下的
          <mark>install.lock</mark>
          文件。
