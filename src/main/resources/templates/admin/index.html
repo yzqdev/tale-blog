@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head>
     <meta charset="utf-8"/>
     <title>${title ?! '博客后台'} - Tale</title>
@@ -144,7 +144,7 @@
                                 <span class="mini-stat-icon"><i class="fa fa-quote-right" aria-hidden="true"></i></span>
                             </a>
                             <div class="mini-stat-info text-right">
-                                发表了<span class="counter">${statistics.articles}</span>篇文章
+                                发表了<span class="counter" th:text="${statistics.articles}"></span>篇文章
                             </div>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                                 <span class="mini-stat-icon"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
                             </a>
                             <div class="mini-stat-info text-right">
-                                收到了<span class="counter">${statistics.comments}</span>条留言
+                                收到了<span class="counter" th:text="${statistics.comments}"></span>条留言
                             </div>
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                                 <span class="mini-stat-icon"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>
                             </a>
                             <div class="mini-stat-info text-right">
-                                上传了<span class="counter">${statistics.attachs}</span>个附件
+                                上传了<span class="counter" th:text="${statistics.attachs}"></span>个附件
                             </div>
                         </div>
                     </div>
