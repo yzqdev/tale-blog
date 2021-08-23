@@ -10,4 +10,5 @@ import com.yzq.talespring.model.entity.User;
  * @modified By:
  */
 public interface UserService extends IService<User> {
+
 }

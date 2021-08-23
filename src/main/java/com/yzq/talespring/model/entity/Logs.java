@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 /**
  * 日志记录
  *
@@ -45,14 +48,14 @@ public class Logs   {
     /**
      * 日志创建时间
      */
-    private Integer created;
+    private Timestamp created;
 
-    //public Logs(String action, String data, String ip, Integer uid) {
-    //    this.action = action;
-    //    this.data = data;
-    //    this.ip = ip;
-    //    this.authorId = uid;
-    //    this.created = DateKit.nowUnix();
-    //}
+    public Logs(String action, String data, String ip, Integer uid) {
+        this.action = action;
+        this.data = data;
+        this.ip = ip;
+        this.authorId = uid;
+        this.created =new Timestamp(System.currentTimeMillis());
+    }
 
 }

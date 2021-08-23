@@ -3,16 +3,21 @@ package com.yzq.talespring.model.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.sql.Timestamp;
 
 /**
  * 用户
  *
  * @author biezhi
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @TableName( "t_users" )
-public class User {
+public class User extends Model<User> {
 
     /**
      * user表主键
@@ -48,7 +53,7 @@ public class User {
     /**
      * 用户注册时的GMT unix时间戳
      */
-    private Integer created;
+    private Timestamp created;
 
     /**
      * 最后活动时间

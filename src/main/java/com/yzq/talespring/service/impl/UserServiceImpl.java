@@ -6,6 +6,8 @@ import com.yzq.talespring.model.entity.User;
 import com.yzq.talespring.service.UserService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * @author yzq
  * @description
@@ -14,4 +16,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+    @Resource
+    UserMapper userMapper;
+
 }
