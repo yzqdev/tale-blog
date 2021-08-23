@@ -63,7 +63,7 @@ public class User extends Model<User> {
     /**
      * 上次登录最后活跃时间
      */
-    private Integer logged;
+    private Timestamp logged;
 
     /**
      * 用户组

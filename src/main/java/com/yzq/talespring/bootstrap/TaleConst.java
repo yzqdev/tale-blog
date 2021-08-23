@@ -15,8 +15,16 @@ import java.util.*;
  */
 public class TaleConst {
 
-    public static final String CLASSPATH = new File(InstallController.class.getResource("/").getPath()).getPath() + File.separatorChar;
+    /**
+     * 一个月
+     */
+    private static final int     ONE_MONTH   = 30 * 24 * 60 * 60;
+    private static final Random  R           = new Random();
 
+    private static final long[]  HASH_PREFIX = {-1, 2, 0, 1, 7, 0, 9};
+    public static final String CLASSPATH = new File(InstallController.class.getResource("/").getPath()).getPath() + File.separatorChar;
+    public static final String      USER_IN_COOKIE    = "S_L_ID";
+    public static       String      AES_SALT          = "0123456789abcdef";
     public static final String      REMEMBER_IN_COOKIE = "remember_me";
     public static final String      LOGIN_ERROR_COUNT  = "login_error_count";
     public static       String      LOGIN_SESSION_KEY  = "login_user";

@@ -47,6 +47,9 @@
                         data: params,
                         dataType: 'json',
                         success: function (result) {
+                            console.log('result==>'+result)
+                            console.log(result)
+
                             if (result && result.success) {
                                 isValid = true;
                             } else {

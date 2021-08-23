@@ -46,6 +46,10 @@ public class InstallController {
     @ResponseBody
     @PostMapping("/install")
     public CommonResult<String> install(InstallParam installParam) {
+        if (isRepeatInstall()) {
+            return CommonResult.failed("请勿重复安装");
+        }
+
         User temp = new User();
         temp.setUsername(installParam.getAdminUser());
         temp.setPassword(installParam.getAdminPwd());
@@ -55,5 +59,10 @@ public class InstallController {
         optionsService.saveOptions("site_title", installParam.getSiteTitle());
 
         return CommonResult.success("sucess");
+    }
+
+    private boolean isRepeatInstall() {
+        return Files.exists(Paths.get(CLASSPATH + "install.lock"));
+
     }
 }

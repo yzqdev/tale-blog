@@ -1,5 +1,6 @@
 package com.yzq.talespring.service;
 
+import com.yzq.talespring.model.dto.Statistics;
 import com.yzq.talespring.model.entity.User;
 
 /**
@@ -14,5 +15,5 @@ public interface SiteService {
      * @param user
      */
     void initSite(User user);
-
+    Statistics getStatistics();
 }
