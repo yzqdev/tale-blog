@@ -123,8 +123,8 @@
                                             </div>
                                             <div class="panel-body">
                                                 <ul class="list-group">
-                                                    <li class="list-group-item" v-for="item in logPage.rows">
-                                                        <span>{{item.created | formatUnix}} &nbsp;&nbsp;<kbd>{{item.action}}</kbd></span>
+                                                    <li class="list-group-item" v-for="item in logPage.records">
+                                                        <span>{{item.created  }} &nbsp;&nbsp;<kbd>{{item.action}}</kbd></span>
                                                     </li>
                                                 </ul>
                                                 <ul class="pager">
@@ -192,8 +192,10 @@
                         page: page,
                         limit: 8
                     },
-                    success: function (data) {
-                        $vm.logPage = data.payload
+                    success: function ({data}) {
+                        console.log(data)
+                        console.log('/api/logs')
+                        $vm.logPage = data
                     },
                     error: function (error) {
                         console.log(error);
@@ -202,11 +204,11 @@
                 });
                 tale.get({
                     url: '/admin/api/comments',
-                    success: function (data) {
-                        if (!data.payload.rows) {
+                    success: function ({data}) {
+                        if (!data.records) {
                             $vm.comments = [];
                         } else {
-                            $vm.comments = data.payload.rows;
+                            $vm.comments = data.records;
                         }
                     },
                     error: function (error) {

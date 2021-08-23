@@ -1,5 +1,7 @@
 package com.yzq.talespring.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yzq.talespring.model.entity.Comments;
 import com.yzq.talespring.model.entity.Logs;
 import com.yzq.talespring.service.CommentsService;
@@ -34,8 +36,9 @@ public class AdminController {
     }
 
     @GetMapping("/logs")
-    public CommonResult getLogs(@RequestParam("page") String page, @RequestParam("limit") String limit) {
-       List<Logs> logs= logsService.list();
+    public CommonResult getLogs(@RequestParam("page") long page, @RequestParam("limit") long limit) {
+        Page<Logs> logsPage= new Page<>(page, limit);
+      IPage<Logs> logs= logsService.page(logsPage);
         return CommonResult.success(logs);
     }
 }

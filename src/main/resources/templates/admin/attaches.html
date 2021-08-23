@@ -1,5 +1,14 @@
-#include('./header.html',{active:'attaches', title:'文件管理'})
-<link href="${cdnURL()}/plugins/dropzone/4.3.0/min/dropzone.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head  th:replace="admin/header::head"> </head>
+<body class="fixed-left">
+<div id="wrapper">
+    <div th:replace="admin/header::topbar"></div>
+    <div th:replace="admin/header::sidemenu(active='home',title='管理中心')"></div>
+    <div class="content-page">
+        <div class="content">
+            <div class="container">
+<link href="/static/admin/plugins/dropzone/4.3.0/min/dropzone.min.css" rel="stylesheet">
 <style>
     #dropzone {
         margin-bottom: 3rem;
@@ -121,9 +130,11 @@
         </div>
     </div>
 </div>
-#include('./footer.html')
-<script src="${cdnURL()}/plugins/dropzone/4.3.0/min/dropzone.min.js"></script>
-<script src="${cdnURL()}/plugins/clipboard.js/1.6.0/clipboard.min.js"></script>
+            </div></div></div>
+
+    <div th:replace="admin/footer::footer"></div>
+<script src="/static/admin/plugins/dropzone/4.3.0/min/dropzone.min.js"></script>
+<script src="/static/admin/plugins/clipboard.js/1.6.0/clipboard.min.js"></script>
 <script >
     var tale = new $.tale();
     var vm = new Vue({
@@ -232,6 +243,6 @@
         vueLoding.hide();
     });
 
-</script>
+</script></div>
 </body>
 </html>

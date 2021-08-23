@@ -1,5 +1,14 @@
-#include('./header.html',{active:'setting', title:'系统设置'})
-<link href="${cdnURL()}/plugins/toggles/toggles.css" rel="stylesheet">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head  th:replace="admin/header::head"> </head>
+<body class="fixed-left"><link href="/static/admin/plugins/toggles/toggles.css" rel="stylesheet">
+<div id="wrapper">
+    <div th:replace="admin/header::topbar"></div>
+    <div th:replace="admin/header::sidemenu(active='home',title='管理中心')"></div>
+    <div class="content-page">
+        <div class="content">
+            <div class="container">
+
 
 <div id="app" class="row" v-cloak>
     <loading :active.sync="isLoading" :can-cancel="true"></loading>
@@ -135,9 +144,10 @@
             </div>
         </div>
     </div>
-</div>
-#include('./footer.html')
-<script src="${cdnURL()}/plugins/jquery-toggles/2.0.4/toggles.min.js"></script>
+</div></div></div></div></div>
+<div th:replace="admin/footer::footer"></div>
+
+<script src="/static/admin/plugins/jquery-toggles/2.0.4/toggles.min.js"></script>
 <script >
     var tale = new $.tale();
     var vm = new Vue({

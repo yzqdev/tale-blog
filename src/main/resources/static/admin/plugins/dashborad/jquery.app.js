@@ -371,8 +371,7 @@ wow.init();
 /* === following js will activate the menu in left side bar based on url ==== */
 $(document).ready(function() {
     $("#sidebar-menu a").each(function() {
-        console.log(this)
-        console.log("zhujjjjjjj")
+
         if (this.href == window.location.href) {
             $(this).addClass("active");
             $(this).parent().addClass("active"); // add active to li of the current link

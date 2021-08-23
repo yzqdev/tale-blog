@@ -68,11 +68,42 @@ public class AdminPageController {
     public String articles() {
         return "admin/articles";
     }
+    @GetMapping("/setting")
+    public String settings() {
+        return "admin/setting";
+    }  @GetMapping("/themes")
+    public String themes() {
+        return "admin/themes";
+    } @GetMapping("/template")
+    public String template() {
+        return "admin/tpl_list";
+    }
+ @GetMapping("/comments")
+    public String comments() {
+        return "admin/comments";
+    } @GetMapping("/categories")
+    public String cate() {
+        return "admin/categories";
+    }
+
+    @GetMapping("/profile")
+    public String profile(Model model, HttpSession session) {
+        //User u = (User) session.getAttribute("user");
+        User u=userService.getById(1);
+        System.out.println(u);
+        System.out.println("------------------------------>");
+        model.addAttribute(TaleConst.LOGIN_SESSION_KEY, u);
+
+
+        return "admin/profile";
+    }
 
     @GetMapping("/pages")
     public String articlePage() {
         return "admin/pages";
-    } @GetMapping("/attaches")
+    }
+
+    @GetMapping("/attaches")
     public String attaches() {
         return "admin/attaches";
     }
