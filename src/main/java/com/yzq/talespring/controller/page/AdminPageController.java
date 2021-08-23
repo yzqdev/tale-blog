@@ -4,8 +4,11 @@ import cn.hutool.crypto.digest.MD5;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yzq.talespring.bootstrap.TaleConst;
 import com.yzq.talespring.model.dto.Statistics;
+import com.yzq.talespring.model.dto.Types;
+import com.yzq.talespring.model.entity.Contents;
 import com.yzq.talespring.model.entity.User;
 import com.yzq.talespring.model.params.LoginParam;
+import com.yzq.talespring.service.ContentsService;
 import com.yzq.talespring.service.SiteService;
 import com.yzq.talespring.service.UserService;
 import com.yzq.talespring.utils.CommonResult;
@@ -23,6 +26,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * @author Yangzhengqian
@@ -36,8 +40,10 @@ import java.sql.Timestamp;
 public class AdminPageController {
     @Resource
     UserService userService;
-@Resource
+    @Resource
     SiteService siteService;
+@Resource
+    ContentsService contentsService;
     @GetMapping("/login")
     public String adminLogin() {
         return "admin/login";
@@ -46,8 +52,14 @@ public class AdminPageController {
     @GetMapping("/index")
     public String adminIndex(Model model) {
         Statistics statistics = siteService.getStatistics();
-model.addAttribute("statistics", statistics);
+        List<Contents> articles=contentsService.getIndexContents(Types.RECENT_ARTICLE,5);
+        model.addAttribute("statistics", statistics);
+        model.addAttribute("articles",articles);
         return "admin/index";
+    }
+    @GetMapping("/article/new")
+    public String articleNew(){
+        return  "admin/article/new";
     }
 
     @ResponseBody

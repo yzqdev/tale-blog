@@ -3,6 +3,8 @@ package com.yzq.talespring.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yzq.talespring.model.entity.Contents;
 
+import java.util.List;
+
 /**
  * @author Yangzhengqian
  * @description
@@ -10,4 +12,6 @@ import com.yzq.talespring.model.entity.Contents;
  * @modified By:
  */
 public interface ContentsService extends IService<Contents> {
+List<Contents> getIndexContents(String type, int limit);
+
 }

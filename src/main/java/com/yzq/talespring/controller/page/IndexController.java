@@ -19,9 +19,9 @@ import java.util.List;
 public class IndexController {
     @Resource
     UserService userService;
-    @GetMapping("/install")
-    public String install() {
-        return "install";
+    @GetMapping("/")
+    public String index() {
+        return "index";
     }
 
 
