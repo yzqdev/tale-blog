@@ -4,12 +4,12 @@
 !function ($) {
 
     "use strict";
-    var tale = new $.tale();
-    var FormWizard = function () {
+    let tale = new $.tale();
+    let FormWizard = function () {
     };
     //creates form with validation
     FormWizard.prototype.init = function () {
-        var $form_container = $("#wizard-validation-form");
+        let $form_container = $("#wizard-validation-form");
         $form_container.validate({
             errorPlacement: function errorPlacement(error, element) {
                 element.after(error);
@@ -32,13 +32,13 @@
                 if(currentIndex === 1 && newIndex === 0){
                     return true;
                 }
-                var isValid = $form_container.valid();
+                let isValid = $form_container.valid();
                 if(!isValid){
                     tale.hideLoading();
                 }
                 if (isValid && currentIndex === 0) {
                     isValid = false;
-                    var params = $form_container.serialize();
+                    let params = $form_container.serialize();
                     tale.showLoading();
                     $.ajax({
                         url: '/home/install',
@@ -72,7 +72,7 @@
             },
             onFinishing: function (event, currentIndex) {
                 $form_container.validate().settings.ignore = ":disabled";
-                var isValid = $form_container.valid();
+                let isValid = $form_container.valid();
                 window.location.href = "/admin/login";
                 return isValid;
             },
@@ -85,8 +85,8 @@
         //init
         $.FormWizard = new FormWizard, $.FormWizard.Constructor = FormWizard
 }(window.jQuery), $.FormWizard.init();
-var siteUrl = document.location.protocol + '//' + document.location.host;
-var el = document.getElementById('siteUrl');
+let siteUrl = document.location.protocol + '//' + document.location.host;
+let el = document.getElementById('siteUrl');
 // noinspection JSAnnotator
 if(el){
     el.value = siteUrl;
