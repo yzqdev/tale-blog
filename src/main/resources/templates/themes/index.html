@@ -1,4 +1,7 @@
-#include('./partial/header.html',{home_page:1})
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ <head th:replace="partial/header :: themeHead"></head>
+ <head th:replace="partial/header :: themeHeader"></head>
 <div class="main-content index-page clearfix">
     <div class="post-lists">
         <div class="post-lists-body">
@@ -18,7 +21,7 @@
                         </div>
                         <div class="item-meta clearfix">
                             <div class="item-meta-ico ${show_icon()}"
-                                 style="background: url(/templates/themes/default/static/img/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                                 style="background: url(/templates/themes/static/img/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
                             <div class="item-meta-cat">
                                 ${show_categories()}
                             </div>
