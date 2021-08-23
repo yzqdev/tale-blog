@@ -8,6 +8,7 @@ import com.yzq.talespring.model.entity.Logs;
 import com.yzq.talespring.model.entity.User;
 import com.yzq.talespring.service.SiteService;
 import com.yzq.talespring.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,6 +22,7 @@ import java.sql.Timestamp;
  * @modified By:
  */
 @Service
+@Slf4j
 public class SiteServiceImpl implements SiteService {
     @Resource
     UserService userService;
@@ -37,12 +39,14 @@ public class SiteServiceImpl implements SiteService {
         try {
             String cp = UserMapper.class.getClassLoader().getResource("").getPath();
             File lock = new File(cp + "install.lock");
+           log.info(lock.getAbsolutePath());
             lock.createNewFile();
             TaleConst.INSTALLED = Boolean.TRUE;
             Logs logs = new Logs("初始化站点", null, "", uid);
             logsMapper.insert(logs);
         } catch (Exception e) {
             try {
+                e.printStackTrace();
                 throw new Exception("初始化站点失败");
             } catch (Exception ex) {
                 ex.printStackTrace();

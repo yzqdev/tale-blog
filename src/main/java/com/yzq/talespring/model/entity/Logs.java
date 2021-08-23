@@ -1,6 +1,8 @@
 package com.yzq.talespring.model.entity;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +25,7 @@ public class Logs   {
     /**
      * 日志主键
      */
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
     /**

@@ -18,11 +18,14 @@ public class ApplicationStartListener implements ApplicationListener<WebServerIn
 
     @Override
     public void onApplicationEvent(WebServerInitializedEvent event) {
-        int port=event.getApplicationContext().getWebServer().getPort();
+        int port = event.getApplicationContext().getWebServer().getPort();
         InetAddress address = null;
         try {
             address = InetAddress.getLocalHost();
-            System.out.println( "http://" + address.getHostAddress() + ":" + port+"/swagger-ui/");System.out.println( "http://" + address.getHostAddress() + ":" + port);
+            System.out.println("network: http://" + address.getHostAddress() + ":" + port + "/swagger-ui/");
+            System.out.println("network: http://" + address.getHostAddress() + ":" + port);
+            System.out.println("local: http://localhost:"+port);
+            System.out.println("local: http://localhost:"+port+"/swagger-ui/");
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }

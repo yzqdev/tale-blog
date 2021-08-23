@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 23/08/2021 09:46:24
+ Date: 23/08/2021 11:24:10
 */
 
 SET NAMES utf8mb4;
@@ -104,7 +104,7 @@ CREATE TABLE `t_logs`  (
   `data` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `author_id` int NOT NULL,
   `ip` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `created` int NOT NULL,
+  `created` timestamp NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `id`(`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
@@ -112,7 +112,6 @@ CREATE TABLE `t_logs`  (
 -- ----------------------------
 -- Records of t_logs
 -- ----------------------------
-INSERT INTO `t_logs` VALUES (1, '初始化站点', NULL, 1, '', 1629455975);
 
 -- ----------------------------
 -- Table structure for t_metas
@@ -197,5 +196,6 @@ CREATE TABLE `t_users`  (
 -- ----------------------------
 -- Records of t_users
 -- ----------------------------
+INSERT INTO `t_users` VALUES (7, 'yzqdev', 'b097d32da251b7864b31ecc888c525e6', '1@qq.com', NULL, 'yzqdev', '2021-08-23 11:23:29', NULL, NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;

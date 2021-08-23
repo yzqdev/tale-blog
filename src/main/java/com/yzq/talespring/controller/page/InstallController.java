@@ -2,6 +2,7 @@ package com.yzq.talespring.controller.page;
 
 import com.yzq.talespring.model.entity.User;
 import com.yzq.talespring.model.params.InstallParam;
+import com.yzq.talespring.service.OptionsService;
 import com.yzq.talespring.service.SiteService;
 import com.yzq.talespring.utils.CommonResult;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,8 @@ import static com.yzq.talespring.bootstrap.TaleConst.CLASSPATH;
 public class InstallController {
     @Resource
     SiteService siteService;
+    @Resource
+    OptionsService optionsService;
     //@Value("${tale.allow-install}")
     private boolean allowReinstall = false;
 
@@ -48,6 +51,9 @@ public class InstallController {
         temp.setPassword(installParam.getAdminPwd());
         temp.setEmail(installParam.getAdminEmail());
         siteService.initSite(temp);
+        optionsService.saveOptions("site_url", installParam.getSiteUrl());
+        optionsService.saveOptions("site_title", installParam.getSiteTitle());
+
         return CommonResult.success("sucess");
     }
 }
