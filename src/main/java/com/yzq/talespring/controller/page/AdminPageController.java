@@ -3,8 +3,10 @@ package com.yzq.talespring.controller.page;
 import cn.hutool.crypto.digest.MD5;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yzq.talespring.bootstrap.TaleConst;
+import com.yzq.talespring.model.dto.Statistics;
 import com.yzq.talespring.model.entity.User;
 import com.yzq.talespring.model.params.LoginParam;
+import com.yzq.talespring.service.SiteService;
 import com.yzq.talespring.service.UserService;
 import com.yzq.talespring.utils.CommonResult;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +36,8 @@ import java.sql.Timestamp;
 public class AdminPageController {
     @Resource
     UserService userService;
-
+@Resource
+    SiteService siteService;
     @GetMapping("/login")
     public String adminLogin() {
         return "admin/login";
@@ -42,7 +45,8 @@ public class AdminPageController {
 
     @GetMapping("/index")
     public String adminIndex(Model model) {
-model.addAttribute("name","aaaa");
+        Statistics statistics = siteService.getStatistics();
+model.addAttribute("statistics", statistics);
         return "admin/index";
     }
 

@@ -1,5 +1,6 @@
 package com.yzq.talespring.model.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
@@ -8,7 +9,7 @@ import lombok.Data;
  * @author biezhi
  */
 @Data
-//@Table(name = "t_relationships", pk = "mid")
+ @TableName(  "t_relationships" )
 public class Relationships {
 
     /**
