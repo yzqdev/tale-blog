@@ -66,12 +66,12 @@
         </div>
     </div>
 </div>
-<div class="left side-menu" th:fragment="sidemenu">
+<div class="left side-menu" th:fragment="sidemenu (active,title)">
     <div class="sidebar-inner slimscrollleft">
         <div id="sidebar-menu">
             <ul>
-                <li #if(active=='home') class="active" #end>
-                    <a href="/admin/index" class="waves-effect #if(active=='home') active #end"><i
+                <li th:class="${active=='home'?'active':''}"  >
+                    <a href="/admin/index" class="waves-effect  "><i
                             class="fa fa-dashboard" aria-hidden="true"></i><span> 仪表盘 </span></a>
                 </li>
                 <li #if(active=='publish') class="active" #end>

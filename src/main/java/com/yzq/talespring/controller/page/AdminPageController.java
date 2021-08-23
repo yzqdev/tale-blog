@@ -67,9 +67,14 @@ public class AdminPageController {
     @GetMapping("/articles")
     public String articles() {
         return "admin/articles";
-    }  @GetMapping("/pages")
+    }
+
+    @GetMapping("/pages")
     public String articlePage() {
         return "admin/pages";
+    } @GetMapping("/attaches")
+    public String attaches() {
+        return "admin/attaches";
     }
 
     @ResponseBody
