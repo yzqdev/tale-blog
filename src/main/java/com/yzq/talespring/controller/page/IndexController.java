@@ -17,20 +17,20 @@ import java.util.List;
  */
 @Controller
 public class IndexController {
-    public static String THEME = "themes/";
+
     @Resource
     UserService userService;
     @GetMapping("/")
     public String index() {
-        return THEME+"index";
+        return  "themes/index";
     }
-  @GetMapping("/achives")
+  @GetMapping("/archives")
     public String achive() {
-        return THEME+"achives";
+        return "themes/archives";
     }
   @GetMapping("/article")
     public String article() {
-        return THEME+"post";
+        return  "themes/post";
     }
 
 

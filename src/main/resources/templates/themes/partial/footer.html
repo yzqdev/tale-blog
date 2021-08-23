@@ -1,3 +1,6 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="footer">
+
 <footer id="footer" class="footer bg-white">
     <div class="footer-social">
         <div class="footer-container clearfix">
@@ -137,8 +140,8 @@
     postDirectoryBuild();
 </script>
 #end
-<script src="${theme_url('/static/js/headroom.min.js')}"></script>
-<script src="${theme_url('/static/js/instantclick.min.js')}"></script>
+<script src="/static/home/js/headroom.min.js"></script>
+<script src="/static/home/js/instantclick.min.js"></script>
 <script>
     hljs.initHighlightingOnLoad();
 
@@ -185,5 +188,4 @@
     });
     InstantClick.init('mousedown');
 </script>
-</body>
-</html>
+</div>
