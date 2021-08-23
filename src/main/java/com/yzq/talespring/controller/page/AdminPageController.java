@@ -42,8 +42,9 @@ public class AdminPageController {
     UserService userService;
     @Resource
     SiteService siteService;
-@Resource
+    @Resource
     ContentsService contentsService;
+
     @GetMapping("/login")
     public String adminLogin() {
         return "admin/login";
@@ -52,14 +53,23 @@ public class AdminPageController {
     @GetMapping("/index")
     public String adminIndex(Model model) {
         Statistics statistics = siteService.getStatistics();
-        List<Contents> articles=contentsService.getIndexContents(Types.RECENT_ARTICLE,5);
+        List<Contents> articles = contentsService.getIndexContents(Types.RECENT_ARTICLE, 5);
         model.addAttribute("statistics", statistics);
-        model.addAttribute("articles",articles);
+        model.addAttribute("articles", articles);
         return "admin/index";
     }
+
     @GetMapping("/article/new")
-    public String articleNew(){
-        return  "admin/article/new";
+    public String articleNew() {
+        return "admin/article/new";
+    }
+
+    @GetMapping("/articles")
+    public String articles() {
+        return "admin/articles";
+    }  @GetMapping("/pages")
+    public String articlePage() {
+        return "admin/pages";
     }
 
     @ResponseBody
